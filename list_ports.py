@@ -14,4 +14,8 @@ if __name__ == '__main__':
         sys.exit(1)
     low = int(sys.argv[1])
     high = int(sys.argv[2])
-    port_list(low, high)
+    if low > high:
+        high -= low
+        low += high
+        high = low-high
+    port_list(max(low, 0), min(high, 65535))
